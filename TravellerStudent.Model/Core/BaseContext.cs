@@ -7,6 +7,6 @@ namespace TravellerStudent.Model.Core
 {
     public class BaseContext
     {
-        public User CurrentUser { get; set; }
+        public string CurrentUserName { get; set; }
     }
 }

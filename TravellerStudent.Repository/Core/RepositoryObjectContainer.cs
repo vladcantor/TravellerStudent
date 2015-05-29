@@ -7,15 +7,15 @@ using TravellerStudent.Model.Core;
 
 namespace TravellerStudent.Repository.Core
 {
-    public class RepositoryObjectContainer : BaseObjectContainer, IDisposable
+    public class RepositoryObjectContainer : BaseObjectContainer
     {
         #region Members
-        private BaseContext _context;
+        private RepositoryContext _context;
         private Lazy<UserRepository> _userRepository;
         #endregion Members
 
         #region Constructors
-        public RepositoryObjectContainer(BaseContext context)
+        public RepositoryObjectContainer(RepositoryContext context)
         {
             _context = context;
             InitializeMembers();
@@ -28,18 +28,12 @@ namespace TravellerStudent.Repository.Core
 
         #region Methods
         #region Protected
-        protected void InitializeMembers()
+        protected override void InitializeMembers()
         {
             _userRepository = new Lazy<UserRepository>(() => new UserRepository(_context));
         }
         #endregion Protected
         #endregion Methods
 
-        #region IDisposable
-        public void Dispose()
-        {
-            return;
-        }
-        #endregion IDisposable
     }
 }

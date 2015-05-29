@@ -57,10 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Test.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BaseService.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.asmx.cs">
+      <DependentUpon>Test.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -69,6 +77,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TravellerStudent.Controller\TravellerStudent.Controller.csproj">
+      <Project>{5ed1523b-919c-4c48-94b1-03e99460d2ac}</Project>
+      <Name>TravellerStudent.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravellerStudent.Model\TravellerStudent.Model.csproj">
+      <Project>{92bafd48-a2c0-467d-b0bd-97f9f9357e06}</Project>
+      <Name>TravellerStudent.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
