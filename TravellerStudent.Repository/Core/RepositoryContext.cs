@@ -22,7 +22,7 @@ namespace TravellerStudent.Repository.Core
 
         #region Properties
         public RepositoryObjectContainer Repository { get { return _objectContainer.Value; } }
-        public string ConnectionString { get; set; }
+        public string ConnectionString { get { return "Data Source=VMVLAD;Initial Catalog=TravellerStudent;Integrated Security=True"; } }
         #endregion Properties
     }
 }
