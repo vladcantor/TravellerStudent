@@ -13,7 +13,7 @@ namespace TravellerStudent.Test.Core
 
         public BaseTest()
         {
-            _context = new ControllerContext(new Model.Core.BaseContext());
+            _context = new ControllerContext(new Model.Core.ContextInformation());
         }
     }
 }

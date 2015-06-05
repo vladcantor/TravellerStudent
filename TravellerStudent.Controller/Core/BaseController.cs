@@ -13,7 +13,7 @@ namespace TravellerStudent.Controller.Core
         protected ControllerContext _context;
         public BaseController(ControllerContext context)
         {
-            _context = context;
+            _context = context; 
         }
     }
 }

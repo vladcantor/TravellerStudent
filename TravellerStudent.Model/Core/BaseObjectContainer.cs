@@ -18,14 +18,14 @@ namespace TravellerStudent.Model.Core
         /// </summary>
         /// <typeparam name="TObject">The type is generic and needs to be specified when calling this class.</typeparam>
         /// <returns>An object derived from <see cref="TravellerStudent.Model.Core.BaseObjectContainer"/>.</returns>
-        protected TObject GetObject<TObject>(BaseContext context) where TObject : BaseObjectContainer
+        protected TObject GetObject<TObject>(ContextInformation contextInfo) where TObject : BaseObjectContainer
         {
             Type genericBaseObjectType = typeof(TObject);
             if (_baseObjectInstances.ContainsKey(genericBaseObjectType))
             {
                 return (TObject)_baseObjectInstances[genericBaseObjectType];
             }
-            TObject baseObject = (TObject)Activator.CreateInstance(genericBaseObjectType, context);
+            TObject baseObject = (TObject)Activator.CreateInstance(genericBaseObjectType, contextInfo);
             _baseObjectInstances.Add(genericBaseObjectType, baseObject);
             return baseObject;
         }

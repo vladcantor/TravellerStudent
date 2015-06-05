@@ -7,14 +7,14 @@ using TravellerStudent.Model.Core;
 
 namespace TravellerStudent.Repository.Core
 {
-    public class RepositoryContext
+    public class RepositoryContext:BaseContext
     {
         #region Members
         protected Lazy<RepositoryObjectContainer> _objectContainer;
         #endregion Members
 
         #region Constructors
-        public RepositoryContext(BaseContext context)
+        public RepositoryContext(ContextInformation contextInfo):base(contextInfo)
         {
             _objectContainer = new Lazy<RepositoryObjectContainer>(() => new RepositoryObjectContainer(this));
         }

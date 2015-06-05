@@ -18,9 +18,9 @@ namespace TravellerStudentServer.Core
             : base()
         {
             _context = new Lazy<ControllerContext>(() => new ControllerContext(
-                new BaseContext
+                new ContextInformation
                 {
-                    CurrentUserName = this.Context.User.Identity.Name
+                    CurrentUsername = this.Context.User.Identity.Name
                 }));
         }
         #endregion Constructors

@@ -8,24 +8,24 @@ using TravellerStudent.Repository.Core;
 
 namespace TravellerStudent.Controller.Core
 {
-    public class ControllerContext
+    public class ControllerContext:BaseContext
     {
         #region Members
         protected Lazy<ControllerObjectContainer> _controllerContainer;
-        protected Lazy<RepositoryObjectContainer> _repositoryContainer;
+        protected Lazy<RepositoryContext> _repositoryContext;
         #endregion Members
 
         #region Constructors
-        public ControllerContext(BaseContext context)
+        public ControllerContext(ContextInformation contextInfo):base(contextInfo)
         {
             _controllerContainer = new Lazy<ControllerObjectContainer>(() => new ControllerObjectContainer(this));
-            _repositoryContainer = new Lazy<RepositoryObjectContainer>(() => new RepositoryObjectContainer(new RepositoryContext(context)));
+            _repositoryContext = new Lazy<RepositoryContext>(() => new RepositoryContext(contextInfo));
         }
         #endregion Constructors
 
         #region Properties
         public ControllerObjectContainer Controller { get { return _controllerContainer.Value; } }
-        internal RepositoryObjectContainer Repository { get { return _repositoryContainer.Value; } }
+        internal RepositoryObjectContainer Repository { get { return _repositoryContext.Value.Repository; } }
         #endregion Properties
 
     }

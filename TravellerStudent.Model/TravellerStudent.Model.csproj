@@ -34,14 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="Choice.cs" />
     <Compile Include="Core\BaseContext.cs" />
     <Compile Include="Core\BaseObjectContainer.cs" />
-    <Compile Include="Core\ContextInitializer.cs" />
+    <Compile Include="Core\ContextInformation.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />

@@ -7,6 +7,11 @@ namespace TravellerStudent.Model.Core
 {
     public class BaseContext
     {
-        public string CurrentUserName { get; set; }
+        private ContextInformation _contextInfo;
+        public BaseContext(ContextInformation contextInfo)
+        {
+            _contextInfo = contextInfo;
+        }
+        public ContextInformation ContextInformation { get { return _contextInfo; } }
     }
 }
