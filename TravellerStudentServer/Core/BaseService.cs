@@ -18,10 +18,23 @@ namespace TravellerStudentServer.Core
             : base()
         {
             _context = new Lazy<ControllerContext>(() => new ControllerContext(
-                new ContextInformation
-                {
-                    CurrentUsername = this.Context.User.Identity.Name
-                }));
+                GetContextInformation()));
+        }
+
+        private ContextInformation GetContextInformation()
+        {
+            if (Context.Request.Headers.AllKeys.Contains("Token"))
+            {
+                return new ContextInformation { 
+                    CurrentUsername = DecodeToke(Context.Request.Headers["Token"])
+                };
+            }
+            return null;
+        }
+
+        private string DecodeToke(string token)
+        {
+            return token;
         }
         #endregion Constructors
 
